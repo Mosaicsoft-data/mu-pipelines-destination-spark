@@ -5,11 +5,11 @@ build-backend = "flit_core.buildapi"
 [project]
 name = "mu_pipelines_destination_spark"
 authors = [
-    {name = "MosaicSoft", email = "josh.m.reilly@gmail.com"},
+    {name = "MosaicSoft", email = "mupipelines@gmail.com"},
 ]
 description = "mu_pipelines_destination_spark"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.11"
 keywords = ["data movement", "spark", "etl"]
 license = {file = "LICENSE"}
 classifiers = [
