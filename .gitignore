@@ -1,4 +1,6 @@
 dist
+Lib
+Scripts
 dist/*
 .venv
 .coverage
