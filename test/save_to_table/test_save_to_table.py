@@ -16,12 +16,13 @@ from mu_pipelines_interfaces.configuration_provider import ConfigurationProvider
 
 from mu_pipelines_destination_spark.save_to_table.save_to_table import SaveToTable
 
-@deprecation.fail_if_not_removed
-def test_deprecation():
-    config: DestinationConfig = cast(
-        DestinationConfig, dict({ "type": "table-spark", "table_name": "people", "mode": "overwrite" })
-    )
 
+@deprecation.fail_if_not_removed
+def test_deprecation() -> None:
+    config: DestinationConfig = cast(
+        DestinationConfig,
+        dict({"type": "table-spark", "table_name": "people", "mode": "overwrite"}),
+    )
 
     configuration_provider: ConfigurationProvider = DIYConfigurationProvider(
         job_config=[
@@ -30,7 +31,13 @@ def test_deprecation():
                 dict(
                     {
                         "execution": [],
-                        "destination": [{ "type": "table-spark", "table_name": "people", "mode": "overwrite" }],
+                        "destination": [
+                            {
+                                "type": "table-spark",
+                                "table_name": "people",
+                                "mode": "overwrite",
+                            }
+                        ],
                     }
                 ),
             )

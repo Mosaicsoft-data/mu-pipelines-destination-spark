@@ -29,7 +29,9 @@ class DestinationDefaultCatalog(DestinationModuleInterface):
         """
         TODO need to determine how to validate the config
         """
-        destination_config: DestinationDefaultCatalogConfig = cast(DestinationDefaultCatalogConfig, self._config)
+        destination_config: DestinationDefaultCatalogConfig = cast(
+            DestinationDefaultCatalogConfig, self._config
+        )
         assert "table_name" in destination_config
         assert (
             len(destination_config["table_name"]) > 0
@@ -37,7 +39,9 @@ class DestinationDefaultCatalog(DestinationModuleInterface):
         assert "mode" in destination_config
 
     def save(self, df: DataFrame, context: MUPipelinesSparkContext) -> None:
-        destination_config: DestinationDefaultCatalogConfig = cast(DestinationDefaultCatalogConfig, self._config)
+        destination_config: DestinationDefaultCatalogConfig = cast(
+            DestinationDefaultCatalogConfig, self._config
+        )
 
         writer: DataFrameWriter = df.write
 

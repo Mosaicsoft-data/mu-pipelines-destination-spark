@@ -16,12 +16,12 @@ from mu_pipelines_interfaces.configuration_provider import ConfigurationProvider
 
 from mu_pipelines_destination_spark.save_to_csv.save_to_csv import SaveToCSV
 
-@deprecation.fail_if_not_removed
-def test_deprecation():
-    config: DestinationConfig = cast(
-        DestinationConfig, dict({ "type": "csv", "file_location": "file://test.csv" })
-    )
 
+@deprecation.fail_if_not_removed
+def test_deprecation() -> None:
+    config: DestinationConfig = cast(
+        DestinationConfig, dict({"type": "csv", "file_location": "file://test.csv"})
+    )
 
     configuration_provider: ConfigurationProvider = DIYConfigurationProvider(
         job_config=[
@@ -30,7 +30,9 @@ def test_deprecation():
                 dict(
                     {
                         "execution": [],
-                        "destination": [{ "type": "csv", "file_location": "file://test.csv" }],
+                        "destination": [
+                            {"type": "csv", "file_location": "file://test.csv"}
+                        ],
                     }
                 ),
             )

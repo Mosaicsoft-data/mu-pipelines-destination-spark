@@ -24,7 +24,6 @@ class DestinationCSVConfig(TypedDict):
 
 
 class DestinationCSV(DestinationModuleInterface):
-
     def __init__(
         self, config: DestinationConfig, configuration_provider: ConfigurationProvider
     ):

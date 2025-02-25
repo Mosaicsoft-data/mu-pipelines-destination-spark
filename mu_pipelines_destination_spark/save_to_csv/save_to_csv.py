@@ -1,6 +1,6 @@
 from typing import TypedDict, cast
-from deprecation import deprecated
 
+from deprecation import deprecated
 from mu_pipelines_interfaces.config_types.destination_config import DestinationConfig
 from mu_pipelines_interfaces.configuration_provider import ConfigurationProvider
 from mu_pipelines_interfaces.destination_module_interface import (
