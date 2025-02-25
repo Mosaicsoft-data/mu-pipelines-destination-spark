@@ -1,4 +1,5 @@
 from typing import TypedDict, cast
+from deprecation import deprecated
 
 from mu_pipelines_interfaces.config_types.destination_config import DestinationConfig
 from mu_pipelines_interfaces.configuration_provider import ConfigurationProvider
@@ -7,6 +8,7 @@ from mu_pipelines_interfaces.destination_module_interface import (
 )
 from pyspark.sql import DataFrame, DataFrameWriter
 
+from mu_pipelines_destination_spark import __version__
 from mu_pipelines_destination_spark.context.spark_context import MUPipelinesSparkContext
 
 
@@ -22,6 +24,12 @@ class SaveToTableConfig(TypedDict):
 
 
 class SaveToTable(DestinationModuleInterface):
+    @deprecated(
+        removed_in="1.0.0",
+        deprecated_in="0.2.0",
+        current_version=__version__,
+        details="Use DestinationDefaultCatalog",
+    )
     def __init__(
         self, config: DestinationConfig, configuration_provider: ConfigurationProvider
     ):
