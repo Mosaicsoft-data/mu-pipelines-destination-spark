@@ -18,7 +18,6 @@ class AdditionalAttribute(TypedDict):
 class DestinationCSVConfig(TypedDict):
     file_location: str
     delimiter: str
-    header: bool
     quotes: str
     additional_attributes: list[AdditionalAttribute]
 
@@ -45,9 +44,6 @@ class DestinationCSV(DestinationModuleInterface):
 
         if "delimiter" in csv_config:
             writer = writer.option("delimiter", csv_config["delimiter"])
-
-        if "header" in csv_config:
-            writer = writer.option("header", csv_config["header"])
 
         if "quotes" in csv_config:
             writer = writer.option("quote", csv_config["quotes"])
